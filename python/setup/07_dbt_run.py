@@ -1,6 +1,5 @@
 # Databricks notebook source
 # DBTITLE 1,dbt run
-# Databricks notebook source
 # 07_dbt_run.py
 # Run dbt models (Silver to Gold transformation)
 

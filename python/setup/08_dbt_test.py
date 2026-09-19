@@ -1,6 +1,5 @@
 # Databricks notebook source
 # DBTITLE 1,dbt test
-# Databricks notebook source
 # 08_dbt_test.py
 # Run dbt tests on gold models
 

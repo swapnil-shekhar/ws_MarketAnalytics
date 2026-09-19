@@ -1,6 +1,5 @@
 # Databricks notebook source
 # DBTITLE 1,Load Reference Data
-# Databricks notebook source
 # 02_load_reference_data.py
 # BRONZE: Load ticker reference data (symbols, sectors, exchanges)
 # Output: fin_analytics_<env>.raw.ticker_reference_raw

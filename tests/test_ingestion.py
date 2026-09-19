@@ -1,6 +1,5 @@
 # Databricks notebook source
 # DBTITLE 1,Test Ingestion
-# Databricks notebook source
 # test_ingestion.py
 # Project-level test: verify ingestion produced data
 

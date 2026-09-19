@@ -1,6 +1,5 @@
 # Databricks notebook source
 # DBTITLE 1,Create Catalog Schemas and Volumes
-# Databricks notebook source
 # 00_create_catalog_schemas.py
 # Creates UC catalogs, schemas, and volumes for the specified environment
 # Uses DAB variable: catalog (e.g., fin_analytics_dev)

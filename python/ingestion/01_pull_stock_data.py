@@ -1,6 +1,5 @@
 # Databricks notebook source
 # DBTITLE 1,Pull Stock Data via yfinance
-# Databricks notebook source
 # 01_pull_stock_data.py
 # BRONZE: Fetch OHLCV stock data via yfinance and write to raw Delta table
 # Output: fin_analytics_<env>.raw.stock_prices_raw
@@ -49,6 +48,3 @@ else:
     print("No data fetched")
 
 spark.table(table_name).display()
-
-# COMMAND ----------
-

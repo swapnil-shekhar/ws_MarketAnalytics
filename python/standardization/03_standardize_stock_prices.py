@@ -1,6 +1,5 @@
 # Databricks notebook source
 # DBTITLE 1,Standardize Stock Prices
-# Databricks notebook source
 # 03_standardize_stock_prices.py
 # BRONZE to SILVER: Standardize raw stock prices
 # Input: fin_analytics_<env>.raw.stock_prices_raw

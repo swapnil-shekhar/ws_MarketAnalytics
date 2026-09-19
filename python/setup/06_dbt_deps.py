@@ -1,6 +1,5 @@
 # Databricks notebook source
 # DBTITLE 1,dbt deps
-# Databricks notebook source
 # 06_dbt_deps.py
 # Run dbt deps to install packages
 

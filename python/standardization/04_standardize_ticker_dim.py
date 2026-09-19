@@ -1,6 +1,5 @@
 # Databricks notebook source
 # DBTITLE 1,Standardize Ticker Dimension
-# Databricks notebook source
 # 04_standardize_ticker_dim.py
 # BRONZE to SILVER: Standardize ticker reference data
 # Input: fin_analytics_<env>.raw.ticker_reference_raw

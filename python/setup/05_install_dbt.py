@@ -1,6 +1,5 @@
 # Databricks notebook source
 # DBTITLE 1,Install dbt
-# Databricks notebook source
 # 05_install_dbt.py
 # Install dbt-databricks adapter
 

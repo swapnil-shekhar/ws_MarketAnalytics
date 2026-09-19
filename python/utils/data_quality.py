@@ -1,6 +1,5 @@
 # Databricks notebook source
 # DBTITLE 1,Data Quality Functions
-# Databricks notebook source
 # data_quality.py
 # Reusable data quality validation functions
 

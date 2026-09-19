@@ -1,6 +1,5 @@
 # Databricks notebook source
 # DBTITLE 1,Schema Definitions
-# Databricks notebook source
 # schema_definitions.py
 # Centralized PySpark schema definitions for all tables
 
