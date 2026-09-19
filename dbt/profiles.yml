@@ -1,0 +1,27 @@
+# dbt profiles: ws_market_analytics
+# 3 environments with separate UC catalogs
+
+ws_market_analytics:
+  outputs:
+    dev:
+      type: databricks
+      catalog: fin_analytics_dev
+      schema: gold
+      host: dbc-3e98fc47-4484.cloud.databricks.com
+      http_path: /sql/1.0/warehouses
+      token: "{{ env_var('DATABRICKS_TOKEN') }}"
+    qa:
+      type: databricks
+      catalog: fin_analytics_qa
+      schema: gold
+      host: dbc-3e98fc47-4484.cloud.databricks.com
+      http_path: /sql/1.0/warehouses
+      token: "{{ env_var('DATABRICKS_TOKEN') }}"
+    prod:
+      type: databricks
+      catalog: fin_analytics_prod
+      schema: gold
+      host: dbc-3e98fc47-4484.cloud.databricks.com
+      http_path: /sql/1.0/warehouses
+      token: "{{ env_var('DATABRICKS_TOKEN') }}"
+  target: dev

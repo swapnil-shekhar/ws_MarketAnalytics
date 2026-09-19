@@ -1,0 +1,23 @@
+# dbt project: ws_market_analytics
+# Silver to Gold transformation (SQL only)
+
+name: ws_market_analytics
+version: '1.0'
+config-version: 2
+
+profile: ws_market_analytics
+
+model-paths: ["models"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+clean-targets:
+  - target
+  - dbt_packages
+
+models:
+  ws_market_analytics:
+    gold:
+      +materialized: table
+      +schema: gold
+      +format: delta

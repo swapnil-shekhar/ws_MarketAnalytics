@@ -1,0 +1,76 @@
+# ws_MarketAnalytics - DAB Bundle Configuration
+# Stock Market Financial Analytics System
+# Architecture: Python (Bronze+Silver) + dbt (Gold) + DABs (CI/CD)
+
+bundle:
+  name: ws_market_analytics
+
+variables:
+  catalog:
+    description: Unity Catalog catalog name (set per target environment)
+    type: string
+  
+  warehouse_id:
+    description: SQL warehouse ID for dbt execution and dashboards
+    type: string
+  
+  dbt_version:
+    description: dbt-databricks adapter version
+    default: "1.8.0"
+  
+  python_version:
+    description: Python version for notebook tasks
+    default: "3.11"
+
+include:
+  - resources/*.yml
+
+targets:
+  # ---- DEV ENVIRONMENT ----
+  dev:
+    default: true
+    variables:
+      catalog: fin_analytics_dev
+    workspace:
+      host: https://dbc-3e98fc47-4484.cloud.databricks.com
+      root_path: /Workspace/Users/swapnilshekhar1493@gmail.com/.bundle/${bundle.name}/dev
+    resources:
+      jobs:
+        ingestion_job:
+          name: ws_market_analytics_ingestion_dev
+        standardization_job:
+          name: ws_market_analytics_standardization_dev
+        dbt_job:
+          name: ws_market_analytics_dbt_dev
+
+  # ---- QA ENVIRONMENT ----
+  qa:
+    variables:
+      catalog: fin_analytics_qa
+    workspace:
+      host: https://dbc-3e98fc47-4484.cloud.databricks.com
+      root_path: /Workspace/Users/swapnilshekhar1493@gmail.com/.bundle/${bundle.name}/qa
+    resources:
+      jobs:
+        ingestion_job:
+          name: ws_market_analytics_ingestion_qa
+        standardization_job:
+          name: ws_market_analytics_standardization_qa
+        dbt_job:
+          name: ws_market_analytics_dbt_qa
+
+  # ---- PROD ENVIRONMENT ----
+  prod:
+    variables:
+      catalog: fin_analytics_prod
+    workspace:
+      host: https://dbc-3e98fc47-4484.cloud.databricks.com
+      root_path: /Workspace/Users/swapnilshekhar1493@gmail.com/.bundle/${bundle.name}/prod
+    resources:
+      jobs:
+        ingestion_job:
+          name: ws_market_analytics_ingestion_prod
+        standardization_job:
+          name: ws_market_analytics_standardization_prod
+        dbt_job:
+          name: ws_market_analytics_dbt_prod

@@ -1,0 +1,33 @@
+# DAB Job: Bronze Ingestion (Python notebooks via yfinance)
+resources:
+  jobs:
+    ingestion_job:
+      tasks:
+        - task_key: create_catalog_schemas
+          notebook_task:
+            notebook_path: /Workspace${workspace.root_path}/python/setup/00_create_catalog_schemas
+            source: WORKSPACE
+          environment_key: default
+        - task_key: pull_stock_data
+          depends_on:
+            - task_key: create_catalog_schemas
+          notebook_task:
+            notebook_path: /Workspace${workspace.root_path}/python/ingestion/01_pull_stock_data
+            source: WORKSPACE
+          environment_key: default
+        - task_key: load_reference_data
+          depends_on:
+            - task_key: create_catalog_schemas
+          notebook_task:
+            notebook_path: /Workspace${workspace.root_path}/python/ingestion/02_load_reference_data
+            source: WORKSPACE
+          environment_key: default
+      environments:
+        - environment_key: default
+          spec:
+            client: "1"
+            dependencies:
+              - yfinance
+      schedule:
+        quartz_cron_expression: "0 0 22 * * ?"
+        timezone_id: UTC

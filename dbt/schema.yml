@@ -1,0 +1,49 @@
+# dbt schema: sources and model tests
+
+version: 2
+
+sources:
+  - name: clean
+    schema: clean
+    tables:
+      - name: stock_prices
+        description: Standardized stock price data (Silver layer)
+        columns:
+          - name: ticker
+            tests: [not_null]
+          - name: date
+            tests: [not_null]
+          - name: close
+            tests: [not_null]
+          - name: volume
+            tests: [not_null]
+      - name: ticker_dim
+        description: Standardized ticker reference dimension (Silver layer)
+        columns:
+          - name: ticker
+            tests: [not_null, unique]
+          - name: sector
+            tests: [not_null]
+
+models:
+  - name: technical_indicators
+    description: Technical indicators per ticker (SMA, EMA, RSI, MACD, Bollinger Bands)
+    columns:
+      - name: ticker
+        tests: [not_null]
+      - name: date
+        tests: [not_null]
+  - name: daily_returns
+    description: Daily returns, rolling volatility, cumulative returns
+    columns:
+      - name: ticker
+        tests: [not_null]
+      - name: date
+        tests: [not_null]
+  - name: sector_performance
+    description: Sector-level daily aggregates and returns
+    columns:
+      - name: sector
+        tests: [not_null]
+      - name: date
+        tests: [not_null]
